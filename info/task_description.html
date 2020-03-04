@@ -1,20 +1,25 @@
 <!-- Describe task in general -->
 
 <p>
-    Sum two passed ints
+    In a given word you need to check if one symbol goes after another.
 </p>
 
-<p style="text-align: center;">
-    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
-</p>
+<p> Cases you should expect while you solving this challenge </p>
+
+<ul>
+    <li>one or another symbols are not in the given word - your function should return false</li>
+    <li>any of symbols can be more than once in a word - use only the first one</li>
+    <l>if two symbols are the same - your function should return false</l>
+    <li>condition is case sencetive. It mease 'a' and 'A' are two different symbols</li>
+</ul>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Two arguments. Both are ints.
+    <strong>Input: </strong> Three arguments. First is a given string, second is a symbol that shoud go first and the third one is a symbold that should go after.
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong> Bool.
 </p>
 
 
@@ -25,28 +30,21 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">sumTwo(2, 3) == 5
-sumTwo(5, 7) == 12
+<pre class="brush: javascript">goesAfter('world', 'w', 'o') == true
+goesAfter('world', 'l', 'o') == false
+goesAfter('panorama', 'a', 'n') == true
+goesAfter('list', 'l', 'o') == false
+goesAfter('', 'l', 'o') == false
+goesAfter('list', 'l', 'l') == false
 </pre>
 {% else %}
-<pre class="brush: python">sum_two(2, 3) == 5
-sum_two(5, 7) == 12
+<pre class="brush: python">goes_after('world', 'w', 'o') == True
+goes_after('world', 'l', 'o') == False
+goes_after('panorama', 'a', 'n') == True
+goes_after('list', 'l', 'o') == False
+goes_after('', 'l', 'o') == False
+goes_after('list', 'l', 'l') == False
 </pre>
 {% endif %}
 </div>
 
-
-<!-- Here you can explain how it can be used in development -->
-<!-- The section is optional -->
-<p class="for_info_only">
-
-    <strong>How it’s used: </strong>
-    <i>(math is used everywhere)</i>
-</p>
-
-<!-- Here you can explain some constraints for input-->
-<!-- The section is optional -->
-<p>
-    <strong>Precondition:</strong>
-    <i>both given ints should be between -1000 and 1000</i>
-</p>

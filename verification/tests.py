@@ -11,26 +11,50 @@ Each test is a dict with
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": ['world', 'w', 'o'],
+            "answer": True
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
-        }
+            "input": ['world', 'l', 'o'],
+            "answer": False
+        },
+        {
+            "input": ['panorama', 'a', 'n'],
+            "answer": True
+        },
+        {
+            "input": ['list', 'l', 'o'],
+            "answer": False
+        },
+        {
+            "input": ['', 'l', 'o'],
+            "answer": False
+        },
+        {
+            "input": ['list', 'l', 'l'],
+            "answer": False
+        },
     ],
     "Extra": [
+        
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": ['almaz', 'a', 'l'],
+            "answer": True
         },
+        
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
-        }
+            "input": ['almaz', 'm', 'a'],
+            "answer": False
+        },
+        
+        {
+            "input": ['almaz', 'r', 'l'],
+            "answer": False
+        },
+        
+        {
+            "input": ['almaz', 'p', 'p'],
+            "answer": False
+        },
     ]
 }
