@@ -15,6 +15,10 @@ TESTS = {
             "answer": True
         },
         {
+            "input": ['world', 'w', 'r'],
+            "answer": False
+        },
+        {
             "input": ['world', 'l', 'o'],
             "answer": False
         },
