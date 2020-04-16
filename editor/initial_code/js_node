@@ -13,11 +13,13 @@ if (!global.is_checking) {
 
     // These "asserts" are used for self-checking
     assert.equal(goesAfter('world', 'w', 'o'), true);
+    assert.equal(goesAfter('world', 'w', 'r'), false);
     assert.equal(goesAfter('world', 'l', 'o'), false);
     assert.equal(goesAfter('panorama', 'a', 'n'), true);
     assert.equal(goesAfter('list', 'l', 'o'), false);
     assert.equal(goesAfter('', 'l', 'o'), false);
     assert.equal(goesAfter('list', 'l', 'l'), false);
+    assert.equal(goesAfter('world', 'd', 'w'), false);
 
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }
