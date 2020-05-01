@@ -64,5 +64,9 @@ TESTS = {
             "input": ['almaz', 'p', 'p'],
             "answer": False
         },
+        {
+            "input": ['almaz', 'r', 'a'],
+            "answer": False
+        },
     ]
 }
