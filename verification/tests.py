@@ -52,7 +52,7 @@ TESTS = {
         
         {
             "input": ['almaz', 'm', 'a'],
-            "answer": False
+            "answer": True
         },
         
         {
