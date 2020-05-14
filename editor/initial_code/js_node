@@ -1,8 +1,8 @@
 "use strict";
 
-function goesAfter(a, b, c) {
+function goesAfter(word: string, first: string, second: string): boolean {
     // your code here
-    return undefined;
+    return false;
 }
 
 var assert = require('assert');
