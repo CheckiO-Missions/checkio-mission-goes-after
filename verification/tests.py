@@ -39,6 +39,10 @@ TESTS = {
             "answer": False
         },
         {
+            "input": ['llama', 'l', 'l],
+            "answer": False
+        },
+        {
             "input": ['world', 'd', 'w'],
             "answer": False
         },
