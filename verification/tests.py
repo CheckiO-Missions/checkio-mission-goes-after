@@ -46,6 +46,11 @@ TESTS = {
     "Extra": [
         
         {
+            "input": ['transport', 'r', 't'],
+            "answer": False
+        },
+        
+        {
             "input": ['almaz', 'a', 'l'],
             "answer": True
         },
