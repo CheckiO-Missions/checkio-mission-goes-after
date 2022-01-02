@@ -20,6 +20,7 @@ if (!global.is_checking) {
     assert.equal(goesAfter('', 'l', 'o'), false);
     assert.equal(goesAfter('list', 'l', 'l'), false);
     assert.equal(goesAfter('world', 'd', 'w'), false);
+    assert.equal(goesAfter('transport', 'r', 't'), false);
 
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }
