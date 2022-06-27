@@ -16,7 +16,7 @@ TESTS = {
         },
         {
             "input": ['world', 'w', 'r'],
-            "answer": False
+            "answer": True
         },
         {
             "input": ['world', 'l', 'o'],
