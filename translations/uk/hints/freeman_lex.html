@@ -1,0 +1,88 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я уявлення не маю, як розв'язувати цю місію.
+    </div>
+    <div class="answer">
+        Ти повинен знайти індекси в слові для першої і другої літери і перевірити
+        їх на визначені умови.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Який інструмент мені використати для знаходження цих індексів?
+    </div>
+    <div class="answer">
+        Тобі слід використати метод рядків <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">find()</a>.
+        Для цілей цієї місії find() кращий, ніж <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">index()</a>,
+        оскільки у випадку відсутності літери в слові, find() повертає 
+        -1, тоді як index() генерує помилку.
+<br>
+<br>
+        <pre class="brush: python">
+i = word.find(first)
+j = word.find(second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Добре, але я не розумію, як перевірити ці індекси на умови місії?
+    </div>
+    <div class="answer">
+        Функція повинна повертати True, якщо обидві літери присутні в слові,
+        не однакові і перша поява другої літери йде відразу за першою появою
+        першої літери. Інакше повертай False.
+<br>
+<br>
+        <pre class="brush: python">
+return i >= 0\ # перша літера присутня у слові
+    and\ # обидві умови повинні бути True
+    j == i + 1 # друга літера йде відразу за першою, 
+               # вона теж має бути присутня в слові для цього.
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Зрозуміло. Як же має виглядати моє остаточне рішення?
+    </div>
+    <div class="answer">
+        Для цього ти повинен лише об'єднати дві попередні підказки коду і
+        додати визначення функції:
+<br>
+<br>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    i = word.find(first)
+    j = word.find(second)
+
+    return i >= 0 and j == i + 1
+        </pre>
+        Є багато інших розв'язків цієї місії, які ти зможеш побачити коли твоє
+        рішення успішно пройде всі тести, наприклад:
+        <br>
+        <br>
+        <pre class="brush: python">
+goes_after = lambda w, f, s: f+s in w and w.index(f)==w.index(s)-1
+        </pre>
+        Поєднання двох букв має бути присутнє у слові. Або:
+        <br>
+        <br>
+        <pre class="brush: python">
+goes_after = lambda w, f, s: -1 < w.find(f+s) <= w.find(f) < w.find(s)            
+        </pre>
+        f+s повинне бути присутнє в слові і його перша поява має бути не пізніше
+        ніж перша поява першої і другої літер.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Дякую! Тепер я знаю і розумію більше! Все працює чудово!
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body>
