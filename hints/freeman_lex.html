@@ -1,0 +1,91 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        You should find word indexes for first and second letters and check them
+        for conditions. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What instrument should I use to find these indexes?
+    </div>
+    <div class="answer">
+        You should use <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">find()</a> string method.
+        For the purpose of this mission find() is better then <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">index()</a>
+        string method, because in case of absence letter in word, find() return 
+        -1, while index() raises error.
+<br>
+<br>
+        <pre class="brush: python">
+i = word.find(first)
+j = word.find(second)
+        </pre>
+        Here 'i' is index of first occurrence of the first letter (or -1 in case
+        of absence) and 'j' is the same for the second letter.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, but I don't understand, how to check these indexes for the conditions
+        if the mission?
+    </div>
+    <div class="answer">
+        The function should return True if both letters present in the word,
+        not equal and the first occurrence of the second letter is right after the
+        first occurrence of the first letter. Else return False.
+<br>
+<br>
+        <pre class="brush: python">
+return i >= 0 and J == i + 1
+        </pre>
+        i >= 0 means? that first letter is present in the word, and demands that
+        conditions should both be True and j == i + 1 means second letter goes right
+        after first, it should be present in word for this.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, how my final solution should looks like?
+    </div>
+    <div class="answer">
+        For this you just need to join previous code hints and add function
+        definition:
+<br>
+<br>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    i = word.find(first)
+    j = word.find(second)
+
+    return i >= 0 and j == i + 1
+        </pre>
+        There are a lot of other solutions for this mission you be able to see
+        when your solution passes all tests successfully, for example:
+        <br>
+        <br>
+        <pre class="brush: python">
+goes_after = lambda w, f, s: f+s in w and w.index(f)==w.index(s)-1
+        </pre>
+        Letters should be together present in the word. Or:
+        <br>
+        <br>
+        <pre class="brush: python">
+goes_after = lambda w, f, s: -1 < w.find(f+s) <= w.find(f) < w.find(s)            
+        </pre>
+        The f+s should be present in the word and the first occurrence of it
+        should be not after then first occurrences of first and second letters.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to here it!
+    </div>
+</div>
+</body>
