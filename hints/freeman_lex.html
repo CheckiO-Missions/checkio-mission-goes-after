@@ -23,6 +23,8 @@
 i = word.find(first)
 j = word.find(second)
         </pre>
+        Here 'i' is index of first occurrence of the first letter (or -1 in case
+        of absence) and 'j' is the same for the second letter.
     </div>
 </div>
 <div class="question-answer">
@@ -37,11 +39,11 @@ j = word.find(second)
 <br>
 <br>
         <pre class="brush: python">
-return i >= 0\ # first letter present in the word
-        and\ # conditions should both be True
-        j == i + 1 # second letter goes right after first, 
-                   # it should be present in word for this.
+return i >= 0 and J == i + 1
         </pre>
+        i >= 0 means? that first letter is present in the word, and demands that
+        conditions should both be True and j == i + 1 means second letter goes right
+        after first, it should be present in word for this.
     </div>
 </div>
 <div class="question-answer">
