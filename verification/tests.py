@@ -73,5 +73,13 @@ TESTS = {
             "input": ['almaz', 'r', 'a'],
             "answer": False
         },
+        {
+            "input": ['world', 'a', 'r'],
+            "answer": False
+        },
+        {
+            "input": ['amazed', 'a', 'z'],
+            "answer": False
+        }
     ]
 }
