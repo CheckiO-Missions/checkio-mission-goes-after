@@ -7,10 +7,9 @@
 <p> Cases you should expect while solving this challenge:</p>
 
 <ul>
-    <li>if more than one symbol is in the list you should always count the first one;</li>
-    <li>one of the symbols is not in the given word - your function should return False;</li>
+    <li>one of the symbols is not in the given word - your function should return {% if is_js %}false{% else %}False{% endif %};</li>
     <li>any symbol appears in a word more than once - use only the first one;</li>
-    <li>two symbols are the same - your function should return False;</li>
+    <li>two symbols are the same - your function should return {% if is_js %}false{% else %}False{% endif %};</li>
     <li>the condition is case sensitive, which means 'a' and 'A' are two different symbols.</li>
 </ul>
 
