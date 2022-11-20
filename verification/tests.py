@@ -42,6 +42,10 @@ TESTS = {
             "input": ['world', 'd', 'w'],
             "answer": False
         },
+        {
+            "input": ['Almaz', 'a', 'l'],
+            "answer": False
+        },
     ],
     "Extra": [
         
