@@ -12,6 +12,7 @@ print('Example:')
 print(goes_after('world', 'w', 'o'))
 {% endblock %}
 
+# These "asserts" are used for self-checking
 {% block tests %}
 {% for t in tests %}
 assert {% block call %}goes_after({{t.input|p_args}})
