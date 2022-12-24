@@ -7,9 +7,9 @@
 <p> Випадки, яких слід очікувати, вирішуючи цю проблему:</p>
 
 <ul>
-     <li> одного із символів немає у даному слові - твоя функція повинна повертати {% if is_js %}<b class="code">false</b>{% else %}<b class="code">False</b>{% endif %};</li>
+     <li> одного із символів немає у даному слові - твоя функція повинна повертати <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>;</li>
      <li> будь-який символ з'являється у слові більше одного разу - використовуй лише перший;</li>
-     <li> шукані символи однакові - твоя функція повинна повертати {% if is_js %}<b class="code">false</b>{% else %}<b class="code">False</b>{% endif %}; </li>
+     <li> шукані символи однакові - твоя функція повинна повертати <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>; </li>
      <li> умова враховує регістр, що означає, що «а» та «А» - це два різні символи.</li> 
 </ul>
 
@@ -22,12 +22,10 @@
     <strong>Вихідні дані:</strong> Логічне (булеве) значення.
 </p>
 
-
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
         <strong>Приклади:</strong>
     </p>
-
-<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>

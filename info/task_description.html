@@ -7,9 +7,9 @@
 <p> Cases you should expect while solving this challenge:</p>
 
 <ul>
-    <li>one of the symbols is not in the given word - your function should return {% if is_js %}<b class="code">false</b>{% else %}<b class="code">False</b>{% endif %};</li>
+    <li>one of the symbols is not in the given word - your function should return <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>;</li>
     <li>any symbol appears in a word more than once - use only the first one;</li>
-    <li>two symbols are the same - your function should return {% if is_js %}<b class="code">false</b>{% else %}<b class="code">False</b>{% endif %};</li>
+    <li>two symbols are the same - your function should return <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>;</li>
     <li>the condition is case sensitive, which means 'a' and 'A' are two different symbols.</li>
 </ul>
 
@@ -19,16 +19,15 @@
 </p>
 
 <p>
-    <strong>Output:</strong> A bool.
+    <strong>Output:</strong> A {% if is_js %}boolean{% else %}bool{% endif %}.
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
-
-<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
