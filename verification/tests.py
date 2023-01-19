@@ -48,27 +48,22 @@ TESTS = {
         },
     ],
     "Extra": [
-        
         {
             "input": ['transport', 'r', 't'],
             "answer": False
         },
-        
         {
             "input": ['almaz', 'a', 'l'],
             "answer": True
         },
-        
         {
             "input": ['almaz', 'm', 'a'],
             "answer": False
         },
-        
         {
             "input": ['almaz', 'r', 'l'],
             "answer": False
         },
-        
         {
             "input": ['almaz', 'p', 'p'],
             "answer": False
@@ -84,6 +79,6 @@ TESTS = {
         {
             "input": ['amazed', 'a', 'z'],
             "answer": False
-        }
+        },
     ]
 }
