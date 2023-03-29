@@ -52,19 +52,23 @@ def goes_after(word: str, first: str, second: str) -> bool:
         <p>
             Here it is!
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first + second) == word.find(first) < word.find(second)
         </pre>
+        </div>
         <p>
             Since, the <b class="code">second</b> characters should go right after the <b class="code">first</b>, you may also write the following variant:
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -77,6 +81,7 @@ def goes_after(word: str, first: str, second: str) -> bool:
         <p>
             Since <b class="code">index()</b> method raises as error in case of absence, you need <b class="code">try-except</b> statement. The first occurrence of the <b class="code">second</b> character should be the next after the <b class="code">first</b>. 
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
@@ -85,14 +90,17 @@ def goes_after(word: str, first: str, second: str) -> bool:
     except ValueError:
         return False
         </pre>
+        </div>
         <p>
             This variant is even shorted than ours and logically complete!
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first) == word.find(second) - 1
         </pre>
+        </div>
         <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>
