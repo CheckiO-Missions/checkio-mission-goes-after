@@ -140,19 +140,23 @@ return -1 < word.find(first + second) == word.find(first)
         <p>
             Ось повний розв'язок:
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first + second) == word.find(first) < word.find(second)
         </pre>
+        </div>
         <p>
             Оскільки символ <b class="code">second</b> має йти відразу за <b class="code">first</b>, ти можеш написати також наступний варіант:
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -165,6 +169,7 @@ def goes_after(word: str, first: str, second: str) -> bool:
         <p>
             Оскільки метод <b class="code">index()</b> викликає помилку у випадку відсутності шуканого аргументу, ти маєш використати вираз <b class="code">try-except</b>. Перша поява символа <b class="code">second</b> має йти відразу після <b class="code">first</b>. 
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
@@ -173,14 +178,17 @@ def goes_after(word: str, first: str, second: str) -> bool:
     except ValueError:
         return False
         </pre>
+        </div>
         <p>
             Цей варіант навіть коротший ніж наш і логічно повний!
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first) == word.find(second) - 1
         </pre>
+        </div>
         <p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
     </div>
 </div>
