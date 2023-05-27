@@ -1,0 +1,203 @@
+<body data-author="freeman_lex" data-difficulty="normal, advanced">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Vous devez vérifier si la sous-chaîne du <b class="code">premier</b> et du <b class="code">deuxième</b> caractère est dans le <b class="code">mot</b> et si les deux caractères apparaissent pour la première fois dans le <b class="code">mot</b> exactement dans la sous-chaîne.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, par quoi dois-je commencer?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Commençons par vérifier que la sous-chaîne du <b class="code">premier</b> et du <b class="code">deuxième</b> caractère est dans le <b class="code">mot</b>.
+        </p>
+        <p>
+            Pour cette solution particulière, nous utilisons la recherche de l'indice de départ de la sous-chaîne dans la chaîne. Cette recherche peut être effectuée à l'aide de l'une des deux méthodes pour les chaînes de caractères: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> ou <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>. Ces méthodes fonctionnent également avec des chaînes de caractères multiples. Comparons leurs résultats: 
+        </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>Sortie:</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>Sortie:</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
+        <p>
+            Utilisons la seconde, qui renvoie <b class="code">-1</b> en cas d'absence de sous-chaîne dans la chaîne. Votre solution sera plus simple et plus courte.
+        </p>
+        <pre class="brush: python">
+word.find(...) # returns starting index of substr (if present) or -1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            J'ai besoin d'aide concernant l'argument de la méthode find().
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Le <b class="code">deuxième</b> caractère doit être placé juste après le <b class="code">premier</b>. Cela signifie que nous recherchons la chaîne de caractères <b class="code">first + second</b>.
+        </p>
+        <p>
+            Par exemple, dans la chaîne <b class="code">"table"</b>, <b class="code">"b"</b> se trouve juste après <b class="code">"a"</b> - il n'y a aucun caractère entre les deux. Puisque <b class="code">find()</b> peut prendre plusieurs caractères en argument, nous pouvons dire que nous recherchons la sous-chaîne " <b class="code">a" + "b" -&gt; "ab"</b> dans la chaîne <b class="code">"table"</b>.
+        </p>
+        <pre class="brush: python">
+word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Cette méthode renvoie un nombre (index ou <b class="code">-1</b>). Comment obtenir un bool à partir de cette méthode?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Votre fonction doit retourner <b class="code">True</b>, si la sous-chaîne est présente dans le <b class="code">mot</b>. Cela signifie que l'index de départ (résultat de la méthode <b class="code">find</b> ) ne doit pas être égal à <b class="code">-1</b> (plus grand, puisqu'il ne peut pas être inférieur). Comparons-les et obtenons une valeur booléenne de cette manière.
+        </p>
+        <pre class="brush: python">
+-1!= word.find(first + second)
+# or
+-1 < word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Que dois-je faire ensuite?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Dans cette mission, le même caractère peut apparaître plusieurs fois dans le <b class="code">mot</b>. Vous devez donc vérifier si la sous-chaîne n'est pas seulement présente dans le <b class="code">mot</b>, mais si elle inclut les premières apparitions des caractères.   
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Veuillez m'expliquer plus en détail.</p>
+    </div>
+    <div class="answer">
+        <p>
+            L'expression précédente vérifie la présence de la sous-chaîne dans le <b class="code">mot</b>. Supposons qu'elle soit présente. La sous-chaîne commence à partir du <b class="code">premier</b> caractère et il doit s'agir de la première occurrence du premier caractère. Le résultat de la méthode <b class="code">find()</b> pour le <b class="code">premier</b> caractère doit donc être le même que pour la sous-chaîne! Il est possible de compléter la comparaison.  
+        </p>
+        <pre class="brush: python">
+return -1 < word.find(first + second) == word.find(first)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            J'ai besoin d'un indice sur la prochaine étape.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            En procédant avec la même logique, l'index de la sous-chaîne (et la première apparition du <b class="code">premier</b> caractère) doit être inférieur à l'index de la première apparition du <b class="code">deuxième</b> caractère.
+        </p>
+    </div>    
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Alors, à quoi devrait ressembler ma solution finale?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Il suffit d'envelopper votre code dans une expression de fonction.
+        </p>
+        <p>
+            Voici la solution complète:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) < word.find(second)
+        </pre>
+        </div>
+        <p>
+            Puisque le <b class="code">deuxième</b> caractère doit être placé juste après le <b class="code">premier</b>, vous pouvez également écrire la variante suivante:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Montrez-moi d'autres solutions!<br />
+        parce que je veux être un vrai 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Puisque la méthode <b class="code">index()</b> soulève une erreur en cas d'absence, vous avez besoin de l'instruction <b class="code">try-except</b>. La première occurrence du <b class="code">deuxième</b> caractère doit être la suivante après le <b class="code">premier</b>. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(second) - word.index(first) == 1
+    except ValueError:
+        return False
+        </pre>
+        </div>
+        <p>
+            Cette variante est encore plus courte que la nôtre et reste logiquement complète!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+        <p><b>Cliquez sur "Best solutions" dans le menu de la mission et découvrez de nombreuses autres solutions intéressantes!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Merci beaucoup! J'en sais plus et je comprends mieux maintenant! Tout fonctionne bien!</p>
+    </div>
+    <div class="answer">
+        👍 Heureux de l'apprendre!
+    </div>
+</div>
+</body>
