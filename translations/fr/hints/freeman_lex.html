@@ -13,7 +13,7 @@ def goes_after(word: str, first: str, second: str) -> bool:
     return -1 < word.find(first + second)
         </pre>
         <p>
-            Mais dans cette mission, les mêmes caractères peuvent apparaître plusieurs fois dans le <b class="code">mot</b>. Vous devez donc vérifier si la sous-chaîne n'est pas seulement présente dans le <b class="code">mot</b>, mais si elle inclut les premières apparitions des caractères.   
+            Mais dans cette mission, les mêmes caractères peuvent apparaître plusieurs fois dans le <b class="code">word</b>. Vous devez donc vérifier si la sous-chaîne n'est pas seulement présente dans le <b class="code">word</b>, mais si elle inclut les premières apparitions des caractères.   
         </p>
     </div>
 </div>
@@ -23,7 +23,7 @@ def goes_after(word: str, first: str, second: str) -> bool:
     </div>
     <div class="answer">
         <p>
-            La solution existante vérifie déjà la présence de la sous-chaîne dans le <b class="code">mot</b>. Supposons qu'elle soit présente. La sous-chaîne commence à partir du <b class="code">premier</b> caractère et il doit s'agir de la première occurrence du premier caractère. Le résultat de la méthode <b class="code">find()</b> pour le <b class="code">premier</b> caractère doit donc être le même que pour la sous-chaîne! Il est possible de compléter la comparaison.  
+            La solution existante vérifie déjà la présence de la sous-chaîne dans le <b class="code">word</b>. Supposons qu'elle soit présente. La sous-chaîne commence à partir du <b class="code">first</b> caractère et il doit s'agir de la première occurrence du premier caractère. Le résultat de la méthode <b class="code">find()</b> pour le <b class="code">first</b> caractère doit donc être le même que pour la sous-chaîne! Il est possible de compléter la comparaison.  
         </p>
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
@@ -79,7 +79,7 @@ def goes_after(word: str, first: str, second: str) -> bool:
     <div class="answer">
         <p>Bien sûr, prenez-le!</p>
         <p>
-            Puisque la méthode <b class="code">index()</b> soulève une erreur en cas d'absence, vous avez besoin de l'instruction <b class="code">try-except</b>. La première occurrence du <b class="code">deuxième</b> caractère doit être la suivante après le <b class="code">premier</b>. 
+            Puisque la méthode <b class="code">index()</b> soulève une erreur en cas d'absence, vous avez besoin de l'instruction <b class="code">try-except</b>. La première occurrence du <b class="code">second</b> caractère doit être la suivante après le <b class="code">first</b>. 
         </p>
         <div class="spoiler">
         <pre class="brush: python">
