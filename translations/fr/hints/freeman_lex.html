@@ -1,0 +1,115 @@
+<body data-author="freeman_lex" data-difficulty="easy">
+<div class="question-answer">
+    <div class="question">
+        <p>Je n'ai aucune idée de la manière de commencer à résoudre cette mission.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Continuons avec la solution des indices de la mission précédente - <a target="_blank" href="https://py.checkio.org/en/mission/goes-right-after-simplified/">Goes Right After (simplified)</a>.
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second)
+        </pre>
+        <p>
+            Mais dans cette mission, les mêmes caractères peuvent apparaître plusieurs fois dans le <b class="code">mot</b>. Vous devez donc vérifier si la sous-chaîne n'est pas seulement présente dans le <b class="code">mot</b>, mais si elle inclut les premières apparitions des caractères.   
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, que dois-je faire ensuite?</p>
+    </div>
+    <div class="answer">
+        <p>
+            La solution existante vérifie déjà la présence de la sous-chaîne dans le <b class="code">mot</b>. Supposons qu'elle soit présente. La sous-chaîne commence à partir du <b class="code">premier</b> caractère et il doit s'agir de la première occurrence du premier caractère. Le résultat de la méthode <b class="code">find()</b> pour le <b class="code">premier</b> caractère doit donc être le même que pour la sous-chaîne! Il est possible de compléter la comparaison.  
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            J'ai besoin d'un indice sur la prochaine étape.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            En procédant avec la même logique, l'index de la sous-chaîne (et la première apparition du <b class="code">premier</b> caractère) doit être inférieur à l'index de la première apparition du <b class="code">deuxième</b> caractère.
+        </p>
+    </div>    
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Alors, à quoi devrait ressembler ma solution finale?</p>
+    </div>
+    <div class="answer">
+        <p>
+            La voici!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) < word.find(second)
+        </pre>
+        </div>
+        <p>
+            Étant donné que le <b class="code">deuxième</b> caractère doit être placé juste après le <b class="code">premier</b>, vous pouvez également écrire la variante suivante:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Montrez-moi plus de solutions!<br />
+        parce que je veux être un vrai 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Puisque la méthode <b class="code">index()</b> soulève une erreur en cas d'absence, vous avez besoin de l'instruction <b class="code">try-except</b>. La première occurrence du <b class="code">deuxième</b> caractère doit être la suivante après le <b class="code">premier</b>. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(second) - word.index(first) == 1
+    except ValueError:
+        return False
+        </pre>
+        </div>
+        <p>
+            Cette variante est encore plus courte que la nôtre et logiquement complète!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+        <p><b>Cliquez sur "Best solutions" dans le menu de la mission et découvrez de nombreuses autres solutions intéressantes!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!</p>
+    </div>
+    <div class="answer">
+        👍 Heureux de l'apprendre!
+    </div>
+</div>
+</body>
