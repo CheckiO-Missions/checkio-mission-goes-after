@@ -7,9 +7,9 @@
 <p> Voici les cas auxquels vous devez vous attendre lorsque vous relevez ce défi:</p>
 
 <ul>
-    <li>l'un des symboles ne figure pas dans le mot donné - votre fonction doit renvoyer <b class="code">{% if is_js %}f</b> <b class="code">{% else %}F</b> <b class="code">{% endif %}alse</b>;</li>
+    <li>l'un des symboles ne figure pas dans le mot donné - votre fonction doit renvoyer <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>;</li>
     <li>un symbole apparaît plus d'une fois dans un mot - n'utilisez que le premier;</li>
-    <li>deux symboles sont identiques - votre fonction doit renvoyer <b class="code">{% if is_js %}f</b> <b class="code">{% else %}F</b> <b class="code">{% endif %}alse</b>;</li>
+    <li>deux symboles sont identiques - votre fonction doit renvoyer <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>;</li>
     <li>la condition est sensible à la casse, ce qui signifie que "a" et "A" sont deux symboles différents.</li>
 </ul>
 
@@ -19,7 +19,7 @@
 </p>
 
 <p>
-   <strong>Résultat:</strong> A {% if is_js %}<span>booléen</span> <span>(boolean)</span>{% else %} bool{% endif %}.
+   <strong>Résultat:</strong> A {% if is_js %}<span>booléen</span> <span>(boolean)</span>{% else %}<span>booléen</span> <span>(bool){% endif %}.
 </p>
 
 
