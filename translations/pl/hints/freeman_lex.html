@@ -1,0 +1,115 @@
+<body data-author="freeman_lex" data-difficulty="easy">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+            proszę kontynuować rozwiązanie z podpowiedzi poprzedniej misji - <a target="_blank" href="https://py.checkio.org/en/mission/goes-right-after-simplified/">Goes Right After (simplified)</a>.
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second)
+        </pre>
+        <p>
+            Ale w tej misji te same znaki mogą pojawić się wielokrotnie w <b class="code">word</b>. Więc trzeba sprawdzić, czy podciąg jest nie tylko obecny w <b class="code">word</b>, ale obejmuje pierwsze pojawienie się znaków.   
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, co powinienem zrobić dalej?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Istniejące rozwiązanie sprawdza już obecność podciągu w <b class="code">word</b>. Załóżmy, że jest on obecny. Podciąg zaczyna się od znaku <b class="code">first</b> i musi być pierwszym wystąpieniem pierwszego znaku. Zatem wynik metody <b class="code">find()</b> dla znaku <b class="code">first</b> musi być taki sam jak dla podciągu! Możliwe jest uzupełnienie porównania.  
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Potrzebuję podpowiedzi co do mojego następnego kroku.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Postępując zgodnie z tą samą logiką, indeks podciągu (i pierwsze pojawienie się znaku <b class="code">first</b> ) musi być mniejszy niż indeks pierwszego pojawienia się znaku <b class="code">second</b>.
+        </p>
+    </div>    
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak więc powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę bardzo!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) < word.find(second)
+        </pre>
+        </div>
+        <p>
+            Ponieważ znaki <b class="code">second</b> powinny znajdować się zaraz po <b class="code">first</b>, może Pan również napisać następujący wariant:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            Ponieważ metoda <b class="code">index()</b> zgłasza błąd w przypadku braku, potrzebują Państwo instrukcji <b class="code">try-except</b>. Pierwsze wystąpienie znaku <b class="code">second</b> powinno być następnym po <b class="code">first</b>. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(second) - word.index(first) == 1
+    except ValueError:
+        return False
+        </pre>
+        </div>
+        <p>
+            Ten wariant jest nawet krótszy niż nasz i logicznie kompletny!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>
