@@ -1,0 +1,33 @@
+<!-- Describe task in general -->
+
+<p>
+    在一个给定的单词中，你需要检查一个符号是否只在另一个符号的右边。
+</p>
+
+<p>在解决这一难题时，你应该想到的情况是：</p>
+
+<ul>
+    <li>其中一个符号不在给定的单词中 - 你的函数应该返回 <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>;</li>
+    <li>任何符号在一个词中出现了不止一次--只使用第一个符号；</li>
+    <li>两个符号是相同的--你的函数应该返回 <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>;</li>
+    <li>该条件是区分大小写的，这意味着'a'和'A'是两个不同的符号。</li>
+</ul>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入：</strong>三个参数。第一个是一个给定的字符串 <span>(str{% if is_js %}ing{% endif %})</span>，第二个是一个符号 <span>(str{% if is_js %}ing{% endif %})</span>应该放在前面，第三个是一个符号 <span>(str{% if is_js %}ing{% endif %})</span>应该放在第一个参数之后。
+</p>
+
+<p>
+   <strong>输出：</strong>一个逻辑值 <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>例子：</strong>
+    </p>
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+

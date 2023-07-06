@@ -1,0 +1,203 @@
+<body data-author="freeman_lex" data-difficulty="normal, advanced">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我不知道如何开始解决这个任务。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 你需要检查<b class="code">first</b> 和<b class="code">second</b> 字符的子串是否在<b class="code">word</b> 中，并且这两个字符在<b class="code">word</b> 中第一次出现时正好在子串中。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好的，我应该从什么开始？</p>
+    </div>
+    <div class="answer">
+        <p>
+            让我们从检查<b class="code">first</b> 和<b class="code">second</b> 的子串是否在<b class="code">word</b> 中开始。
+        </p>
+        <p>
+            对于这个特殊的解决方案，我们使用查找字符串中子串的起始索引。可以使用两种字符串方法中的一种：<a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> 或<a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> 。这些方法也适用于多字符子串。让我们比较一下它们的输出：  
+        </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
+        <p>
+            让我们使用第二种方法，它在字符串中没有子串的情况下返回<b class="code">-1</b> 。它使你的解决方案更加简单和简短。
+        </p>
+        <pre class="brush: python">
+word.find(...) # returns starting index of substr (if present) or -1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我需要关于find()方法的参数的帮助。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            <b class="code">second</b> 字符必须紧跟在<b class="code">first</b> 之后。这意味着，我们要寻找的是子串<b class="code">first + second</b> 。
+        </p>
+        <p>
+            例如，在字符串<b class="code">"table"</b> 中，<b class="code">"b"</b> 紧跟在<b class="code">"a"</b> 之后 - 它们之间没有任何字符。由于<b class="code">find()</b> 可以接受多个字符的参数，我们可以说，我们正在寻找<b class="code">"table"</b> 字符串中的<b class="code">"a" + "b" -> "ab"</b> 子串。
+        </p>
+        <pre class="brush: python">
+word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            该方法返回一个数字（索引或<b class="code">-1</b> ）。如何从它那里得到bool？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你的函数应该返回<b class="code">True</b> ，如果子串存在于<b class="code">word</b> 。这意味着，起始索引（<b class="code">find</b> 方法的结果）必须不等于<b class="code">-1</b> （更大，因为它不可能更小）。让我们用这样的方式来比较它们并获得布尔值。
+        </p>
+        <pre class="brush: python">
+-1!= word.find(first + second)
+# or
+-1 < word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>接下来我应该怎么做？</p>
+    </div>
+    <div class="answer">
+        <p>
+            在这个任务中，同一个字符可能会多次出现在<b class="code">word</b> 。因此，你需要检查子串是否不仅出现在<b class="code">word</b> ，而且包括第一次出现的字符。   
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>请向我详细解释一下这个问题。</p>
+    </div>
+    <div class="answer">
+        <p>
+            前面的表达式检查了子串在<b class="code">word</b> 中是否存在。让我们假设，它是存在的。子串从<b class="code">first</b> 字符开始，并且必须是第一个字符的第一次出现。所以<b class="code">find()</b> 方法对<b class="code">first</b> 字符的结果必须与子串的结果相同!我们可以进行补充比较。  
+        </p>
+        <pre class="brush: python">
+return -1 < word.find(first + second) == word.find(first)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我需要一个关于下一步的提示。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            按照同样的逻辑，子串的索引（以及<b class="code">first</b> 字符的第一次出现）必须小于<b class="code">second</b> 字符的第一次出现的索引。
+        </p>
+    </div>    
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是什么样子的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            只需将你的代码包装成函数表达式。
+        </p>
+        <p>
+            下面是整个解决方案：
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) < word.find(second)
+        </pre>
+        </div>
+        <p>
+            因为，<b class="code">second</b> 字符应该紧跟在<b class="code">first</b> 之后，你也可以写成以下的变体：
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案!<br />
+        因为我想成为一个真正的🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它!</p>
+        <p>
+            由于<b class="code">index()</b> 方法在不存在的情况下会引发错误，所以你需要<b class="code">try-except</b> 语句。<b class="code">second</b> 字符的第一次出现应该是在<b class="code">first</b> 后面。 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(second) - word.index(first) == 1
+    except ValueError:
+        return False
+        </pre>
+        </div>
+        <p>
+            这个变体甚至比我们的变体更短，但在逻辑上仍然是完整的!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+        <p>点击任务菜单上的<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢!我现在知道并理解了更多!一切工作都很顺利!</p>
+    </div>
+    <div class="answer">
+        👍很高兴听到这个消息!
+    </div>
+</div>
+</body>

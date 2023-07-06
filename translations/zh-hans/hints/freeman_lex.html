@@ -1,0 +1,115 @@
+<body data-author="freeman_lex" data-difficulty="easy">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这个任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 让我们继续前一个任务的提示中的解决方案 -<a target="_blank" href="https://py.checkio.org/en/mission/goes-right-after-simplified/">Goes Right After (simplified)</a> 。
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second)
+        </pre>
+        <p>
+            但是在这个任务中，相同的字符可能会多次出现在<b class="code">word</b> 。因此，你需要检查子串是否不仅出现在<b class="code">word</b> ，而且包括首次出现的字符。   
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好的，接下来我应该怎么做？</p>
+    </div>
+    <div class="answer">
+        <p>
+            现有的解决方案已经检查了子串在<b class="code">word</b> 中是否存在。让我们假设，它是存在的。子串从<b class="code">first</b> 字符开始，而且必须是第一个字符的第一次出现。所以<b class="code">find()</b> 方法对<b class="code">first</b> 字符的结果必须与子串的结果相同!我们可以对比较进行补充。  
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我需要一个关于下一步的提示。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            按照同样的逻辑，子串的索引（以及<b class="code">first</b> 字符的第一次出现）必须小于<b class="code">second</b> 字符的第一次出现的索引。
+        </p>
+    </div>    
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是什么样子的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            这就是了!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) < word.find(second)
+        </pre>
+        </div>
+        <p>
+            因为，<b class="code">second</b> 字符应该紧跟在<b class="code">first</b> ，所以你也可以写成以下的变体：
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案!<br />
+        因为我想成为一个真正的🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它!</p>
+        <p>
+            由于<b class="code">index()</b> 方法在不存在的情况下会引发错误，所以你需要<b class="code">try-except</b> 语句。<b class="code">second</b> 字符的第一次出现应该是在<b class="code">first</b> 后面。 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(second) - word.index(first) == 1
+    except ValueError:
+        return False
+        </pre>
+        </div>
+        <p>
+            这个变体甚至比我们的变体更短，而且逻辑上更完整
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+        <p>点击任务菜单上的<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢!我现在知道并理解了更多!一切运作正常!</p>
+    </div>
+    <div class="answer">
+        👍很高兴听到这个消息!
+    </div>
+</div>
+</body>
