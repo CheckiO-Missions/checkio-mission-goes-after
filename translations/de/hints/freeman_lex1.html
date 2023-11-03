@@ -1,0 +1,203 @@
+<body data-author="freeman_lex" data-difficulty="normal, advanced">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Sie müssen prüfen, ob die Teilzeichenkette aus den Zeichen <b class="code">first</b> und <b class="code">second</b> in <b class="code">word</b> enthalten ist und beide Zeichen zum ersten Mal in <b class="code">word</b> genau in der Teilzeichenkette vorkommen.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, womit soll ich anfangen?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Beginnen wir mit der Prüfung, ob die Teilzeichenkette aus <b class="code">first</b> und <b class="code">second</b> in <b class="code">word</b> vorkommt.
+        </p>
+        <p>
+            Für diese spezielle Lösung verwenden wir die Suche nach dem Anfangsindex der Teilzeichenkette in der Zeichenkette. Dazu können Sie eine von zwei String-Methoden verwenden: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> oder <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>. Diese Methoden funktionieren auch mit mehrstelligen Teilstrings. Lassen Sie uns ihre Ergebnisse vergleichen:  
+        </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
+        <p>
+            Verwenden wir die zweite, die <b class="code">-1</b> zurückgibt, wenn keine Teilzeichenkette in der Zeichenkette vorhanden ist. Das macht Ihre Lösung einfacher und kürzer.
+        </p>
+        <pre class="brush: python">
+word.find(...) # returns starting index of substr (if present) or -1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich brauche Hilfe bei dem Argument der find()-Methode.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Das Zeichen <b class="code">second</b> muss direkt nach <b class="code">first</b> stehen. Das bedeutet, dass wir nach der Teilzeichenkette <b class="code">first + second</b> suchen.
+        </p>
+        <p>
+            In der Zeichenkette <b class="code">"table"</b> folgt zum Beispiel <b class="code">"b"</b> direkt auf <b class="code">"a"</b> - dazwischen befindet sich kein Zeichen. Da <b class="code">find()</b> ein mehrstelliges Argument annehmen kann, können wir sagen, dass wir nach der Teilzeichenkette <b class="code">"a" + "b" -> "ab"</b> in der Zeichenkette <b class="code">"table"</b> suchen.
+        </p>
+        <pre class="brush: python">
+word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Diese Methode gibt eine Zahl zurück (Index oder <b class="code">-1</b>). Wie erhält man bool aus ihr?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Ihre Funktion sollte <b class="code">True</b> zurückgeben, wenn die Teilzeichenkette in <b class="code">word</b> vorhanden ist. Das bedeutet, dass der Startindex (Ergebnis der Methode <b class="code">find</b> ) nicht gleich <b class="code">-1</b> sein darf (größer, da er nicht kleiner sein kann). Lassen Sie uns die beiden vergleichen und so einen booleschen Wert erhalten.
+        </p>
+        <pre class="brush: python">
+-1!= word.find(first + second)
+# or
+-1 < word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Was sollte ich als nächstes tun?</p>
+    </div>
+    <div class="answer">
+        <p>
+            In dieser Mission kann dasselbe Zeichen mehrmals in <b class="code">word</b> vorkommen. Sie müssen also prüfen, ob die Teilzeichenkette nicht nur in <b class="code">word</b> vorhanden ist, sondern auch das erste Vorkommen von Zeichen enthält.   
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Bitte erklären Sie mir das genauer.</p>
+    </div>
+    <div class="answer">
+        <p>
+            Der vorherige Ausdruck prüft das Vorhandensein der Teilzeichenkette in <b class="code">word</b>. Nehmen wir an, sie ist vorhanden. Die Teilzeichenkette beginnt mit dem Zeichen <b class="code">first</b> und es muss das erste Vorkommen des ersten Zeichens sein. Daher muss das Ergebnis der Methode <b class="code">find()</b> für das Zeichen <b class="code">first</b> dasselbe sein wie für die Teilzeichenkette! Es ist möglich, den Vergleich zu ergänzen.  
+        </p>
+        <pre class="brush: python">
+return -1 < word.find(first + second) == word.find(first)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich brauche einen Hinweis auf meinen nächsten Schritt.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Wenn Sie mit der gleichen Logik vorgehen, muss der Index der Teilzeichenkette (und das erste Auftreten des Zeichens <b class="code">first</b> ) kleiner sein als der Index des ersten Auftretens des Zeichens <b class="code">second</b>.
+        </p>
+    </div>    
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Wie sollte also meine endgültige Lösung aussehen?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Verpacken Sie Ihren Code einfach in einen Funktionsausdruck.
+        </p>
+        <p>
+            Hier ist die gesamte Lösung:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) < word.find(second)
+        </pre>
+        </div>
+        <p>
+            Da die <b class="code">second</b> Zeichen direkt nach dem <b class="code">first</b> stehen sollten, können Sie auch die folgende Variante schreiben:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Zeigen Sie mir mehr Lösungen!<br />
+        denn ich will ein echter 🥇 Python Ninnjaa sein!</p>
+    </div>
+    <div class="answer">
+        <p>Klar, greifen Sie zu!</p>
+        <p>
+            Da die Methode <b class="code">index()</b> bei Nichtvorhandensein einen Fehler auslöst, benötigen Sie die Anweisung <b class="code">try-except</b>. Das erste Vorkommen des <b class="code">second</b> Zeichens sollte das nächste nach dem <b class="code">first</b> sein. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(second) - word.index(first) == 1
+    except ValueError:
+        return False
+        </pre>
+        </div>
+        <p>
+            Diese Variante ist sogar kürzer als unsere und trotzdem logisch vollständig!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+        <p>Klicken Sie auf <b>Best Solutions</b> im Missionsmenü und sehen Sie sich viele andere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!</p>
+    </div>
+    <div class="answer">
+        👍 Freut mich zu hören!
+    </div>
+</div>
+</body>
