@@ -1,0 +1,115 @@
+<body data-author="freeman_lex" data-difficulty="easy">
+<div class="question-answer">
+    <div class="question">
+        <p>Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Lassen Sie uns mit der Lösung aus den Hinweisen der vorherigen Mission fortfahren - <a target="_blank" href="https://py.checkio.org/en/mission/goes-right-after-simplified/">Goes Right After (simplified)</a>.
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second)
+        </pre>
+        <p>
+            Aber in dieser Mission können dieselben Zeichen mehrmals in <b class="code">word</b> vorkommen. Sie müssen also überprüfen, ob die Teilzeichenkette nicht nur in <b class="code">word</b> vorkommt, sondern auch das erste Auftreten der Zeichen einschließt.   
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, was soll ich als nächstes tun?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Die vorhandene Lösung prüft bereits das Vorhandensein der Teilzeichenkette in <b class="code">word</b>. Nehmen wir an, sie ist vorhanden. Die Teilzeichenkette beginnt mit dem Zeichen <b class="code">first</b> und es muss das erste Vorkommen des ersten Zeichens sein. Daher muss das Ergebnis der Methode <b class="code">find()</b> für das Zeichen <b class="code">first</b> dasselbe sein wie für die Teilzeichenkette! Es ist möglich, den Vergleich zu ergänzen.  
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich brauche einen Hinweis auf meinen nächsten Schritt.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Wenn Sie mit der gleichen Logik vorgehen, muss der Index der Teilzeichenkette (und das erste Auftreten des Zeichens <b class="code">first</b> ) kleiner sein als der Index des ersten Auftretens des Zeichens <b class="code">second</b>.
+        </p>
+    </div>    
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Wie sollte also meine endgültige Lösung aussehen?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Hier ist sie!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) < word.find(second)
+        </pre>
+        </div>
+        <p>
+            Da die Zeichen von <b class="code">second</b> direkt nach <b class="code">first</b> stehen sollten, können Sie auch die folgende Variante schreiben:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second) == word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Zeigen Sie mir mehr Lösungen!<br />
+        denn ich will ein echter 🥇 Python Ninnjaa sein!</p>
+    </div>
+    <div class="answer">
+        <p>Sicher, greifen Sie zu!</p>
+        <p>
+            Da die Methode <b class="code">index()</b> bei Nichtvorhandensein einen Fehler auslöst, benötigen Sie die Anweisung <b class="code">try-except</b>. Das erste Vorkommen des <b class="code">second</b> Zeichens sollte das nächste nach dem <b class="code">first</b> sein. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(second) - word.index(first) == 1
+    except ValueError:
+        return False
+        </pre>
+        </div>
+        <p>
+            Diese Variante ist sogar kürzer als unsere und logisch vollständig!
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first) == word.find(second) - 1
+        </pre>
+        </div>
+        <p>Klicken Sie auf <b>Best Solutions</b> im Missionsmenü und sehen Sie sich viele andere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Danke! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!</p>
+    </div>
+    <div class="answer">
+        👍 Freut mich zu hören!
+    </div>
+</div>
+</body>
